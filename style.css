@@ -3,41 +3,60 @@ html {
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.app_section {
+.app_section1 {
   padding: 50px;
+  margin-top: 10px;
   width: 100% - 50px;
   height: 300px;
-  background-color: #6ec1e4;
+  background-color: #8ea7e9;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
+.app_section2 {
+  padding: 50px;
+  margin-top: 10px;
+  width: 100% - 50px;
+  height: 300px;
+  background-color: #e5e0ff;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
 
 .screen_block {
+  padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 460px;
+  min-width: 460px;
 }
-
-.to_do_list .screen1 {
+.screen1,
+.screen2 {
   height: 295px;
   width: 222px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 2px solid hsl(198, 74%, 27%);
+}
+
+.app_section1 .screen1 {
   background-image: url(./to_do_list/1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  border: 2px solid hsl(198, 74%, 27%);
+}
+.app_section1 .screen2 {
+  background-image: url(./to_do_list/2.png);
 }
 
-.to_do_list .screen2 {
-  height: 295px;
-  width: 222px;
-  background-image: url(./to_do_list/2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  border: 2px solid hsl(198, 74%, 27%);
+.app_section2 .screen1 {
+  background-image: url(./cook_notes/HTC\ Nexus\ 9\ Screenshot\ 1.png);
+}
+.app_section2 .screen2 {
+  background-image: url(./cook_notes/HTC\ Nexus\ 9\ Screenshot\ 3.png);
 }
 
 a {
@@ -51,11 +70,19 @@ a {
 
 .description {
   align-items: flex-start;
+  padding: 0 50px 0 50px;
+  width: 100% - 222px;
+  align-self: start;
 }
 
-p,
-h2 {
+.app_section1 p,
+.app_section1 h2 {
   color: white;
+}
+
+.app_section2 p,
+.app_section2 h2 {
+  color: black;
 }
 
 h2 {
@@ -69,4 +96,49 @@ p {
 h1 {
   margin-left: 150px;
   font-size: 2.2em;
+}
+
+@media screen and (max-width: 1023px) {
+  .app_section1,
+  .app_section2 {
+    padding: 50px;
+    width: 100% - 50px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h2 {
+    font-size: 1.8em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+  .screen_block {
+    min-width: 384px;
+  }
+  .screen_block .screen1,
+  .screen_block .screen2 {
+    width: 182px;
+    height: 242px;
+  }
+  .app_section1,
+  .app_section2 {
+    padding: 40px;
+  }
+
+  .description {
+    padding: 0 5px 0 5px;
+    width: 100% - 50px;
+    align-self: start;
+  }
 }
